@@ -394,6 +394,10 @@ const uint8_t UBX_NAV_VELECEF = 0x11;   // Velocity Solution in ECEF
 const uint8_t UBX_NAV_VELNED = 0x12;    // Velocity Solution in NED
 const uint8_t UBX_NAV_AOPSTATUS = 0x60; // AssistNow Autonomous status
 
+// Class: NAV2
+// The following are used to configure the NAV2 UBX messages (raw navigation results messages).
+const uint8_t UBX_NAV2_COV = 0x36;       // Covariance matrices for the position & velocity solutions in topocentric coordinate system defined as the local-level North (N), East (E), Down (D) frame. As the covariance matrices are symmetric, only the upper triangular part is output.
+
 // Class: RXM
 // The following are used to configure the RXM UBX messages (receiver manager messages). Descriptions from UBX messages overview (ZED_F9P Interface Description Document page 36)
 const uint8_t UBX_RXM_COR = 0x34;       // Differential correction input status
