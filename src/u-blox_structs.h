@@ -1426,6 +1426,27 @@ typedef struct
 // UBX-NAV2-COV (0x29 0x36): Covariance matrices
 const uint16_t UBX_NAV2_COV_LEN = 64;
 
+typedef struct __attribute__ ((packed))
+{
+  uint32_t iTOW;         // ms GPS time of week of the navigation epoch.
+  uint8_t version;      //  Message version (0x00 for this version)
+  uint8_t posCovValid;  // Position covariance matrix validity flag
+  uint8_t velCovValid;  // Velocity covariance matrix validity flag
+  uint8_t reserved0[9]; // Reserved
+  float posCovNN;     // m^2 Position covariance matrix value p_NN
+  float posCovNE;     // m^2 Position covariance matrix value p_NE
+  float posCovND;     // m^2 Position covariance matrix value p_ND
+  float posCovEE;     // m^2 Position covariance matrix value p_EE
+  float posCovED;     // m^2 Position covariance matrix value p_ED
+  float posCovDD;     // m^2 Position covariance matrix value p_DD
+  float velCovNN;     // m^2/s^2 Velocity covariance matrix value v_NN
+  float velCovNE;     // m^2/s^2 Velocity covariance matrix value v_NE
+  float velCovND;     // m^2/s^2 Velocity covariance matrix value v_ND
+  float velCovEE;     // m^2/s^2 Velocity covariance matrix value v_EE
+  float velCovED;     // m^2/s^2 Velocity covariance matrix value v_ED
+  float velCovDD;     // m^2/s^2 Velocity covariance matrix value v_DD
+} UBX_NAV2_COV_data_t;
+
 // RXM-specific structs
 
 // UBX-RXM-SFRBX (0x02 0x13): Broadcast navigation data subframe
