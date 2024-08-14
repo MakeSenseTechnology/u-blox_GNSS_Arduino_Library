@@ -681,6 +681,8 @@ const uint16_t SFE_UBLOX_DAYS_SINCE_MONTH[2][12] =
         {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334}  // Normal Year
 };
 
+extern UBX_NAV2_COV_data_t packetUBXNAV2COV; // Global location for NAV2 COV packet to be stored.
+
 class SFE_UBLOX_GNSS
 {
 public:
