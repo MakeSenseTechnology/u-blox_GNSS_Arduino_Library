@@ -198,8 +198,10 @@ const uint8_t UBX_CLASS_MGA = 0x13;  // Multiple GNSS Assistance Messages: Assis
 const uint8_t UBX_CLASS_LOG = 0x21;  // Logging Messages: Log creation, deletion, info and retrieval
 const uint8_t UBX_CLASS_SEC = 0x27;  // Security Feature Messages
 const uint8_t UBX_CLASS_HNR = 0x28;  //(NEO-M8P ONLY!!!) High Rate Navigation Results Messages: High rate time, position speed, heading
+const uint8_t UBX_CLASS_NAV2 = 0x29; // (ZED F9P w/ firmware at least HPG 1.32) Secondary output: Reports the results of a GNSS standalone navigation solution.
 const uint8_t UBX_CLASS_NMEA = 0xF0; // NMEA Strings: standard NMEA strings
 const uint8_t UBX_CLASS_PUBX = 0xF1; // Proprietary NMEA-format messages defined by u-blox
+
 
 // Class: CFG
 // The following are used for configuration. Descriptions are from the ZED-F9P Interface Description pg 33-34 and NEO-M9N Interface Description pg 47-48
