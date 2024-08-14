@@ -1421,6 +1421,11 @@ typedef struct
   UBX_NAV_EOE_data_t  *callbackData;
 } UBX_NAV_EOE_t;
 
+// NAV2-specific structs
+
+// UBX-NAV2-COV (0x29 0x36): Covariance matrices
+const uint16_t UBX_NAV2_COV_LEN = 64;
+
 // RXM-specific structs
 
 // UBX-RXM-SFRBX (0x02 0x13): Broadcast navigation data subframe
