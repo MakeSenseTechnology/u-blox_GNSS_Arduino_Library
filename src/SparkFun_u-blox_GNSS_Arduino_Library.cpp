@@ -3895,6 +3895,12 @@ void SFE_UBLOX_GNSS::processUBXpacket(ubxPacket *msg)
       }
     }
     break;
+  case UBX_CLASS_NAV2:
+    if (msg->id == UBX_NAV2_COV && msg->len == UBX_NAV2_COV_LEN)
+    {
+      // To do: Add processing for NAV2_COV messages.
+    }
+    break;
   case UBX_CLASS_RXM:
     if (msg->id == UBX_RXM_PMP)
     // Note: length is variable with version 0x01
