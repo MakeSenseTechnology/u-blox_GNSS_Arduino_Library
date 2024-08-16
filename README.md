@@ -1,3 +1,10 @@
+# MakeSense Installation
+
+1. Please uninstall the original SparkFun u-blox Arduino GNSS Library in Arduino IDE.
+2. Clone this repo into the Arduino/Libraries folder.
+3. The library can then be used as before
+4. **Don't forget to Fetch regularly!**
+
 # SparkFun u-blox Arduino GNSS Library
 
 <table class="table table-hover table-striped table-bordered">
