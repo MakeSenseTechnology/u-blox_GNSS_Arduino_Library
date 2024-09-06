@@ -356,7 +356,7 @@ typedef struct
 // UBX-NAV-PVT (0x01 0x07): Navigation position velocity time solution
 const uint16_t UBX_NAV_PVT_LEN = 92;
 
-typedef struct
+typedef struct __attribute__ ((packed))
 {
   uint32_t iTOW; // GPS time of week of the navigation epoch: ms
   uint16_t year; // Year (UTC)
