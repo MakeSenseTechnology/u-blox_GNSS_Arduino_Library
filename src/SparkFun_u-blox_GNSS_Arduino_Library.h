@@ -198,8 +198,10 @@ const uint8_t UBX_CLASS_MGA = 0x13;  // Multiple GNSS Assistance Messages: Assis
 const uint8_t UBX_CLASS_LOG = 0x21;  // Logging Messages: Log creation, deletion, info and retrieval
 const uint8_t UBX_CLASS_SEC = 0x27;  // Security Feature Messages
 const uint8_t UBX_CLASS_HNR = 0x28;  //(NEO-M8P ONLY!!!) High Rate Navigation Results Messages: High rate time, position speed, heading
+const uint8_t UBX_CLASS_NAV2 = 0x29; // (ZED F9P w/ firmware at least HPG 1.32) Secondary output: Reports the results of a GNSS standalone navigation solution.
 const uint8_t UBX_CLASS_NMEA = 0xF0; // NMEA Strings: standard NMEA strings
 const uint8_t UBX_CLASS_PUBX = 0xF1; // Proprietary NMEA-format messages defined by u-blox
+
 
 // Class: CFG
 // The following are used for configuration. Descriptions are from the ZED-F9P Interface Description pg 33-34 and NEO-M9N Interface Description pg 47-48
@@ -391,6 +393,10 @@ const uint8_t UBX_NAV_TIMEUTC = 0x21;   // UTC Time Solution
 const uint8_t UBX_NAV_VELECEF = 0x11;   // Velocity Solution in ECEF
 const uint8_t UBX_NAV_VELNED = 0x12;    // Velocity Solution in NED
 const uint8_t UBX_NAV_AOPSTATUS = 0x60; // AssistNow Autonomous status
+
+// Class: NAV2
+// The following are used to configure the NAV2 UBX messages (raw navigation results messages).
+const uint8_t UBX_NAV2_COV = 0x36;       // Covariance matrices for the position & velocity solutions in topocentric coordinate system defined as the local-level North (N), East (E), Down (D) frame. As the covariance matrices are symmetric, only the upper triangular part is output.
 
 // Class: RXM
 // The following are used to configure the RXM UBX messages (receiver manager messages). Descriptions from UBX messages overview (ZED_F9P Interface Description Document page 36)
@@ -674,6 +680,8 @@ const uint16_t SFE_UBLOX_DAYS_SINCE_MONTH[2][12] =
         {0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335}, // Leap Year (Year % 4 == 0)
         {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334}  // Normal Year
 };
+
+extern UBX_NAV2_COV_data_t packetUBXNAV2COV; // Global location for NAV2 COV packet to be stored.
 
 class SFE_UBLOX_GNSS
 {
