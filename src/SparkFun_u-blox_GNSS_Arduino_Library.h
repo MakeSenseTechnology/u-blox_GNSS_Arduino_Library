@@ -396,7 +396,9 @@ const uint8_t UBX_NAV_AOPSTATUS = 0x60; // AssistNow Autonomous status
 
 // Class: NAV2
 // The following are used to configure the NAV2 UBX messages (raw navigation results messages).
+const uint8_t UBX_NAV2_PVT = 0x07;       // All the things! Position, velocity, time, PDOP, height, h/v accuracies, number of satellites. Navigation Position Velocity Time Solution.
 const uint8_t UBX_NAV2_COV = 0x36;       // Covariance matrices for the position & velocity solutions in topocentric coordinate system defined as the local-level North (N), East (E), Down (D) frame. As the covariance matrices are symmetric, only the upper triangular part is output.
+
 
 // Class: RXM
 // The following are used to configure the RXM UBX messages (receiver manager messages). Descriptions from UBX messages overview (ZED_F9P Interface Description Document page 36)
@@ -681,6 +683,7 @@ const uint16_t SFE_UBLOX_DAYS_SINCE_MONTH[2][12] =
         {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334}  // Normal Year
 };
 
+extern UBX_NAV2_PVT_data_t packetUBXNAV2PVT; // Global location for NAV2 PVT packet to be stored.
 extern UBX_NAV2_COV_data_t packetUBXNAV2COV; // Global location for NAV2 COV packet to be stored.
 
 class SFE_UBLOX_GNSS
