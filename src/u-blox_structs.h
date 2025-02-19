@@ -558,6 +558,36 @@ typedef struct
   UBX_NAV_ODO_data_t *callbackData;
 } UBX_NAV_ODO_t;
 
+// UBX-NAV-PL (0x01 0x62): Protection level information
+const uint16_t UBX_NAV_PL_LEN = 52;
+
+typedef struct __attribute__((__packed__)) 
+{
+  uint8_t msgVersion;               // Message version
+  uint8_t tmirCoeff;                // Target misleading information risk coefficient
+  int8_t tmirExp;                   // Target misleading information risk exponent
+  uint8_t plPosValid;               // Position protection level validity
+  uint8_t plPosFrame;               // Position protection level frame
+  uint8_t plVelValid;               // Velocity protection level validity
+  uint8_t plVelFrame;               // Velocity protection level frame
+  uint8_t plTimeValid;              // Time protection level validity
+  uint8_t plPosInvalidityReason;    // Position protection level invalidity reason
+  uint8_t plVelInvalidityReason;    // Velocity protection level invalidity reason
+  uint8_t plTimeInvalidityReason;   // Time protection level invalidity reason
+  uint8_t reserved0;
+  uint32_t iTow;                    // GPS time of week of the navigation epoch: ms
+  uint32_t plPos1;                  // First axis of position protection level value: mm
+  uint32_t plPos2;                  // Second axis of position protection level value: mm
+  uint32_t plPos3;                  // Third axis of position protection level value: mm
+  uint32_t plVel1;                  // First axis of velocity protection level value: mm/s
+  uint32_t plVel2;                  // Second axis of velocity protection level value: mm/s
+  uint32_t plVel3;                  // Third axis of velocity protection level value: mm/s
+  uint16_t plPosHorizOrient;        // Orientation of HorizSemiMajorAxis for postion ellipse: 1e-2 deg
+  uint16_t plVelHorizOrient;        // Orientation of HorizSemiMajorAxis for velocity ellipse: 1e-2 deg
+  uint32_t plTime;                  // Time protection level value: ns
+  uint8_t reserved1[4];
+}UBX_NAV_PL_data_t;
+
 // UBX-NAV-VELECEF (0x01 0x11): Velocity solution in ECEF
 const uint16_t UBX_NAV_VELECEF_LEN = 20;
 

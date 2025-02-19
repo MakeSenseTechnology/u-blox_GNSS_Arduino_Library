@@ -42,6 +42,7 @@
 
 #include "SparkFun_u-blox_GNSS_Arduino_Library.h"
 
+UBX_NAV_PL_data_t packetUBXNAVPL;     // Global location for NAV PL packet to be stored.
 UBX_NAV2_PVT_data_t packetUBXNAV2PVT; // Global location for NAV2 PVT packet to be stored.
 UBX_NAV2_COV_data_t packetUBXNAV2COV; // Global location for NAV2 COV packet to be stored.
 
@@ -3421,6 +3422,10 @@ void SFE_UBLOX_GNSS::processUBXpacket(ubxPacket *msg)
           storePacket(msg);
         }
       }
+    }
+    else if (msg->id == UBX_NAV_PL && msg->len == UBX_NAV_PL_LEN)
+    {
+      memcpy(&packetUBXNAVPL, msg->payload, sizeof(packetUBXNAVPL));
     }
     else if (msg->id == UBX_NAV_VELECEF && msg->len == UBX_NAV_VELECEF_LEN)
     {
