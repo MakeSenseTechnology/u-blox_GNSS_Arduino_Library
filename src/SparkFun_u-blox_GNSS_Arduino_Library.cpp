@@ -1399,6 +1399,9 @@ bool SFE_UBLOX_GNSS::checkAutomatic(uint8_t Class, uint8_t ID)
       if (packetUBXNAVEOE != NULL)
         result = true;
       break;
+    case UBX_NAV_PL:
+      result = true;
+      break;
     }
   }
   break;
@@ -1516,6 +1519,19 @@ bool SFE_UBLOX_GNSS::checkAutomatic(uint8_t Class, uint8_t ID)
     }
   }
   break;
+  case UBX_CLASS_NAV2:
+  {
+    switch (ID)
+    {
+    case UBX_NAV2_COV:
+      result = true;
+      break;
+    case UBX_NAV2_PVT:
+      result = true;
+      break;
+    }
+  }
+  break;
   }
   return (result);
 }
@@ -1586,6 +1602,9 @@ uint16_t SFE_UBLOX_GNSS::getMaxPayloadSize(uint8_t Class, uint8_t ID)
       break;
     case UBX_NAV_EOE:
       maxSize = UBX_NAV_EOE_LEN;
+      break;
+    case UBX_NAV_PL:
+      maxSize = UBX_NAV_PL_LEN;
       break;
     }
   }
@@ -1682,6 +1701,19 @@ uint16_t SFE_UBLOX_GNSS::getMaxPayloadSize(uint8_t Class, uint8_t ID)
       break;
     case UBX_HNR_INS:
       maxSize = UBX_HNR_INS_LEN;
+      break;
+    }
+  }
+  break;
+  case UBX_CLASS_NAV2:
+  {
+    switch (ID)
+    {
+    case UBX_NAV2_COV:
+      maxSize = UBX_NAV2_COV_LEN;
+      break;
+    case UBX_NAV2_PVT:
+      maxSize = UBX_NAV2_PVT_LEN;
       break;
     }
   }
