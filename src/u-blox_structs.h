@@ -575,7 +575,7 @@ typedef struct __attribute__((__packed__))
   uint8_t plVelInvalidityReason;    // Velocity protection level invalidity reason
   uint8_t plTimeInvalidityReason;   // Time protection level invalidity reason
   uint8_t reserved0;
-  uint32_t iTow;                    // GPS time of week of the navigation epoch: ms
+  uint32_t iTOW;                    // GPS time of week of the navigation epoch: ms
   uint32_t plPos1;                  // First axis of position protection level value: mm
   uint32_t plPos2;                  // Second axis of position protection level value: mm
   uint32_t plPos3;                  // Third axis of position protection level value: mm
